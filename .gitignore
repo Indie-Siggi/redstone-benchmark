@@ -1,0 +1,29 @@
+# Build outputs (sample builds happen inside the FFX SDK tree, not here)
+x64/
+Release/
+Debug/
+*.obj
+*.exe
+*.pdb
+*.ipdb
+*.iobj
+*.lib
+*.exp
+*.tlog
+vcpkg_installed/
+
+# Benchmark results / logs produced by run-sweep.sh
+results/
+*.log
+*-perf*.csv
+*_FidelityFX_NRC.csv
+*_Cauldron.log
+
+# Binary release bundles (publish via GitHub Releases, not the git tree)
+dist/
+
+# Editor / OS
+.vs/
+.vscode/
+*.user
+.DS_Store

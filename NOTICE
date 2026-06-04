@@ -1,0 +1,34 @@
+Unofficial AMD Redstone Benchmark
+=================================
+
+Independent community project — NOT affiliated with, endorsed by, or sponsored by
+AMD. "AMD", "FidelityFX", and "Redstone" are trademarks of Advanced Micro Devices,
+Inc., used here only descriptively to identify the benchmarked technology.
+
+This repository contains modifications to the AMD FidelityFX(TM) SDK 2.2 samples
+("Redstone") for automated command-line benchmarking. It does NOT include the
+FidelityFX SDK itself — only the modified source and config files (src/) and an
+equivalent unified diff (patches/). Obtain the base source separately:
+
+    FidelityFX-Samples-v2.2.0-source.zip  (AMD GPUOpen / GitHub release v2.2.0)
+
+The AMD FidelityFX SDK is Copyright (C) Advanced Micro Devices, Inc. and is
+dual-licensed per file: the Cauldron framework + samples (all files modified here)
+are under the MIT License; the proprietary FidelityFX effect/ML components and SDK
+core are under a binary-redistribution-only, no-reverse-engineering license. The
+modifications in this repository are MIT licensed (see LICENSE), consistent with the
+MIT tier of the files they modify. Full breakdown and all license texts are in
+licenses/. FidelityFX is a trademark of Advanced Micro Devices, Inc.
+
+Modified files (see patches/redstone-benchmark.patch for the exact changes):
+  Kits/Cauldron2/dx12/framework/core/framework.cpp        (Display Avg FPS in CSV/JSON; timestamped output)
+  Kits/Cauldron2/dx12/framework/core/framework.h          (present-count members)
+  Kits/Cauldron2/dx12/rendermodules/skydome/skydomerendermodule.cpp   (skydome CLI overrides)
+  Samples/Upscalers/FidelityFX_FSR/dx12/fsrapirendermodule.cpp        (FSR + FG CLI knobs)
+  Samples/Denoisers/FidelityFX_Denoiser/dx12/denoiserrendermodule.cpp (Ray Regen CLI knobs)
+  Samples/Denoisers/FidelityFX_Denoiser/dx12/fsrapirendermodule.cpp   (scale preset CLI)
+  Samples/RadianceCaches/FidelityFX_NRC/dx12/D3DPipeline.cpp          (NRC benchmark + CLI knobs)
+  Samples/RadianceCaches/FidelityFX_NRC/dx12/RenderManager.cpp        (NRC -forcewmma)
+  Samples/RadianceCaches/FidelityFX_NRC/dx12/Win32.cpp                (NRC -resolution)
+  Kits/Cauldron2/dx12/framework/config/cauldronconfig.json            (default resolution 1920x1080)
+  Samples/RadianceCaches/FidelityFX_NRC/dx12/config.json             (default resolution 1920x1080)

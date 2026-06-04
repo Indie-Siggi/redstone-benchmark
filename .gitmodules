@@ -1,0 +1,6 @@
+# AMD FidelityFX SDK 2.2 samples — the base source these benchmark mods overlay onto.
+# Pinned to tag v2.2.0 (commit e236f2304dcda35f282fdddd085f41e2ff48c86a).
+# Fetch it with:  git submodule update --init --recursive   (or clone with --recursive)
+[submodule "external/FidelityFX-SDK"]
+	path = external/FidelityFX-SDK
+	url = https://github.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK.git
