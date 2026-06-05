@@ -20,12 +20,12 @@ Neural Radiance Cache is not an upscaler, so "FSR Quality" does not apply to it;
 
 ## Results
 
-| Benchmark | Render res | Avg FPS (rendered) | Display FPS (presented) | Total GPU (ms) | Key pass (ms) |
-|---|---|---|---|---|---|
-| FSR upscaling | 2560×1440 | 145.9 | 145.9 | 6.15 | FSR Upscaler 1.97 |
-| FSR Frame Generation | 2560×1440 | 104.9 | **209.7** | 6.63 | FSR Upscaler 1.97 |
-| FSR Ray Regeneration | 2560×1440 | 50.7 | 50.7 | 19.23 | FSR Ray Regeneration 9.20 |
-| Neural Radiance Cache | 3840×2160 | 36.8 | 36.8 | 26.75 | Radiance cache 5.15 |
+| Benchmark | Display Resolution | Render Resolution | Avg FPS (rendered) | Display FPS (presented) | Total GPU (ms) | Key pass (ms) |
+|---|---|---|---|---|---|---|
+| FSR upscaling | 3840×2160 | 2560×1440 | 145.9 | 145.9 | 6.15 | FSR Upscaler 1.97 |
+| FSR Frame Generation | 3840×2160 | 2560×1440 | 104.9 | **209.7** | 6.63 | FSR Upscaler 1.97 |
+| FSR Ray Regeneration | 3840×2160 | 2560×1440 | 50.7 | 50.7 | 19.23 | FSR Ray Regeneration 9.20 |
+| Neural Radiance Cache | 3840×2160 | 3840×2160 | 36.8 | 36.8 | 26.75 | Radiance cache 5.15 |
 
 - **Display FPS** counts presented frames (incl. frame-generation's interpolated frames). With FG on it
   is ~2× the rendered rate here (the GPU has headroom at 1440p render → clean interpolation).
