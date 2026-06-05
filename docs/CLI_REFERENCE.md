@@ -27,7 +27,8 @@ These were already in AMD's framework; documented here for completeness. **Space
 ### Benchmark control
 | Flag | Meaning |
 |---|---|
-| `-benchmark duration=N` | Run N measured frames, write a results file, then exit. Forces a GPU FPS limiter on. |
+| `-benchmark duration=N` | Run N measured frames, write a results file, then exit. Force-enables a GPU FPS limiter at **60 fps by default** — pass `-nolimit` for an uncapped (GPU-bound) run. |
+| `-nolimit` | Disable the FPS limiter entirely. Overrides the `-benchmark` forced-60 cap **and** any config / `-cpulimiter` / `-gpulimiter` setting, regardless of argument order, so the run is GPU-bound. Also removes the limiter's own GPU pass from the per-pass breakdown. |
 | `-benchmark ... json` | Emit a `.json` instead of the default vertical `.csv` (richer; per-pass labels, `CmdLine`, `DisplayAvgFPS`). |
 | `-benchmark ... append` | Append one row to a single horizontal CSV instead of a timestamped per-run file. |
 | `-benchmark ... path=DIR` | Write the results file into `DIR`. |
@@ -39,6 +40,7 @@ These were already in AMD's framework; documented here for completeness. **Space
 |---|---|
 | `-resolution <W> <H>` | Display (output) resolution. **Default 1920×1080** (config). Render res = display ÷ scale-preset ratio. |
 | `-displaymode <MODE>` | `DISPLAYMODE_LDR` (default), `DISPLAYMODE_HDR10_2084`, `DISPLAYMODE_HDR10_SCRGB`, `DISPLAYMODE_FSHDR_2084`, `DISPLAYMODE_FSHDR_SCRGB`. |
+| `-vsync <0\|1>` | Vertical sync. **Default on** (config). `-vsync 0` disables it (no refresh-rate pacing — pair with `-nolimit` for a fully uncapped run); `-vsync 1` forces it on. |
 
 ### Scene / lighting (built-in)
 | Flag | Meaning |
@@ -205,6 +207,9 @@ umu-run FidelityFX_FSR.exe -benchmark duration=2000 json -resolution 2560 1440 -
 # FSR: frame-gen A/B at native 4K (compare Avg FPS vs Display Avg FPS in the CSV)
 umu-run FidelityFX_FSR.exe -benchmark duration=1000 -resolution 3840 2160 -scalepreset=0 -framegen=0
 umu-run FidelityFX_FSR.exe -benchmark duration=1000 -resolution 3840 2160 -scalepreset=0 -framegen=1
+
+# Uncapped, GPU-bound (no FPS limiter, no vsync) — true max throughput straight from the CSV
+umu-run FidelityFX_Denoiser_Sample_2022.exe -benchmark duration=1000 -nolimit -vsync 0
 
 # Ray Regen: 2-signal denoiser, Balanced upscale, evening sky, brighter exposure
 umu-run FidelityFX_Denoiser_Sample_2022.exe -benchmark duration=2000 \

@@ -1,6 +1,6 @@
 # Unofficial AMD Redstone Benchmark
 
-**Version 0.9.0** · [CHANGELOG](CHANGELOG.md) · Semantic Versioning (`0.x` = pre-1.0)
+**Version 0.10.0** · [CHANGELOG](CHANGELOG.md) · Semantic Versioning (`0.x` = pre-1.0)
 
 > **Disclaimer:** Independent community project — **not affiliated with, endorsed by, or sponsored by AMD**.
 > "AMD", "FidelityFX", and "Redstone" are trademarks of Advanced Micro Devices, Inc., used here only
@@ -27,6 +27,9 @@ runs on Windows.
 - **`Display Avg FPS`** in the benchmark output — the *presented* frame rate (incl. frame-generation's
   interpolated frames), alongside the rendered `Avg FPS`. Makes the frame-gen uplift measurable straight
   from the CSV (e.g. 74 → 148 FPS with FG on). No external overlay needed.
+- **Uncapped, GPU-bound benchmarking** (`-nolimit`, `-vsync 0`) — by default `-benchmark` force-enables a
+  60 fps GPU limiter; `-nolimit` removes it (and its profiler pass) so the CSV reports true max throughput,
+  and `-vsync 0` drops refresh-rate pacing.
 - **Resolution from the CLI** for all three samples (`-resolution <W> <H>`).
 - **CLI benchmark mode for NRC** — the custom (non-Cauldron) NRC sample had no benchmark; now it has
   `-benchmark duration=N` with a per-pass CSV writer + `-forcewmma` backend selection.

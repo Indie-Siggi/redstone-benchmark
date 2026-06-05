@@ -1204,6 +1204,7 @@ namespace cauldron
         m_Config.TakeScreenshot        = false;
         m_Config.LimitFPS              = false;
         m_Config.GPULimitFPS           = false;
+        m_Config.DisableFPSLimit       = false;
         m_Config.InvertedDepth         = true;
         m_Config.OverrideSceneSamplers = true;
         m_Config.BuildRayTracingAccelerationStructure = false;
@@ -1320,6 +1321,24 @@ namespace cauldron
                 bool invertedDepth = !(std::wstring(pArgList[currentArg + 1]) == L"0"); // disable with zero, anything else means "on"
                 m_Config.InvertedDepth = invertedDepth;
                 ++currentArg;
+                continue;
+            }
+
+            // Override vsync (benchmark integrity: -vsync 0 disables vsync, -vsync 1 enables it)
+            if (command == L"-vsync")
+            {
+                // We require 1 argument to override vsync
+                CauldronAssert(ASSERT_CRITICAL, argCount - currentArg > 1 && pArgList[currentArg + 1][0] != L'-', L"-vsync usage: -vsync 1/0");
+                m_Config.Vsync = !(std::wstring(pArgList[currentArg + 1]) == L"0"); // disable with zero, anything else means "on"
+                ++currentArg;
+                continue;
+            }
+
+            // Disable the FPS limiter entirely. Overrides the -benchmark forced 60-fps GPU cap so a
+            // benchmark can run uncapped (GPU-bound). Order-independent: re-applied after parsing below.
+            if (command == L"-nolimit")
+            {
+                m_Config.DisableFPSLimit = true;
                 continue;
             }
 
@@ -1561,6 +1580,13 @@ namespace cauldron
                 currentArg += 1;
                 continue;
             }
+        }
+
+        // -nolimit wins over everything (including the -benchmark forced GPU cap), regardless of argument order
+        if (m_Config.DisableFPSLimit)
+        {
+            m_Config.LimitFPS    = false;
+            m_Config.GPULimitFPS = false;
         }
 
         // Pass on the command line string to the sample in the event they are overriding our parsing

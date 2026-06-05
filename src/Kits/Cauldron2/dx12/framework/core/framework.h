@@ -179,6 +179,7 @@ namespace cauldron
         // FPS limiter
         bool LimitFPS : 1;
         bool GPULimitFPS : 1;
+        bool DisableFPSLimit : 1;   // -nolimit: force limiter off, overriding the -benchmark forced cap
 
         // Acceleration Structure
         bool BuildRayTracingAccelerationStructure : 1;

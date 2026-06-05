@@ -76,7 +76,54 @@
                      // non-append mode has per-marker details. First marker in CPU and GPU sections is whole frame.
                      file << L"CPU/GPU,Label,Min [ms],Max [ms],Mean [ms]\n";
                      for (const auto& ps : m_CpuPerfStats)
-@@ -1706,6 +1721,13 @@
+@@ -1189,6 +1204,7 @@
+         m_Config.TakeScreenshot        = false;
+         m_Config.LimitFPS              = false;
+         m_Config.GPULimitFPS           = false;
++        m_Config.DisableFPSLimit       = false;
+         m_Config.InvertedDepth         = true;
+         m_Config.OverrideSceneSamplers = true;
+         m_Config.BuildRayTracingAccelerationStructure = false;
+@@ -1308,6 +1324,24 @@
+                 continue;
+             }
+ 
++            // Override vsync (benchmark integrity: -vsync 0 disables vsync, -vsync 1 enables it)
++            if (command == L"-vsync")
++            {
++                // We require 1 argument to override vsync
++                CauldronAssert(ASSERT_CRITICAL, argCount - currentArg > 1 && pArgList[currentArg + 1][0] != L'-', L"-vsync usage: -vsync 1/0");
++                m_Config.Vsync = !(std::wstring(pArgList[currentArg + 1]) == L"0"); // disable with zero, anything else means "on"
++                ++currentArg;
++                continue;
++            }
++
++            // Disable the FPS limiter entirely. Overrides the -benchmark forced 60-fps GPU cap so a
++            // benchmark can run uncapped (GPU-bound). Order-independent: re-applied after parsing below.
++            if (command == L"-nolimit")
++            {
++                m_Config.DisableFPSLimit = true;
++                continue;
++            }
++
+             // Force full screen
+             if (command == L"-fullscreen")
+             {
+@@ -1548,6 +1582,13 @@
+             }
+         }
+ 
++        // -nolimit wins over everything (including the -benchmark forced GPU cap), regardless of argument order
++        if (m_Config.DisableFPSLimit)
++        {
++            m_Config.LimitFPS    = false;
++            m_Config.GPULimitFPS = false;
++        }
++
+         // Pass on the command line string to the sample in the event they are overriding our parsing
+         ParseSampleCmdLine(cmdLine);
+     }
+@@ -1706,6 +1747,13 @@
                      // First frame with all modules ready. Wait one frame to start gathering information (from this next frame).
                      // Set start (and possible stop) time now.
                      m_StartTime = std::chrono::steady_clock::now();
@@ -90,7 +137,7 @@
                      if (m_Config.BenchmarkFrameDuration < UINT32_MAX)
                          Log::Write(LOGLEVEL_TRACE, L"Benchmarking for %u frames.", m_Config.BenchmarkFrameDuration);
                      m_PerfFrameCount++;
-@@ -1763,6 +1785,12 @@
+@@ -1763,6 +1811,12 @@
                          }
                          m_PerfFrameCount++;
                      }
@@ -105,7 +152,15 @@
          }
 --- a/Kits/Cauldron2/dx12/framework/core/framework.h
 +++ b/Kits/Cauldron2/dx12/framework/core/framework.h
-@@ -809,6 +809,10 @@
+@@ -179,6 +179,7 @@
+         // FPS limiter
+         bool LimitFPS : 1;
+         bool GPULimitFPS : 1;
++        bool DisableFPSLimit : 1;   // -nolimit: force limiter off, overriding the -benchmark forced cap
+ 
+         // Acceleration Structure
+         bool BuildRayTracingAccelerationStructure : 1;
+@@ -809,6 +810,10 @@
          };
          std::vector<PerfStats>                             m_CpuPerfStats{}, m_GpuPerfStats{};
          int64_t                                            m_PerfFrameCount{INT64_MIN};

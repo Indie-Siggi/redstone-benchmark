@@ -19,7 +19,7 @@ Full flag list: [CLI_REFERENCE.md](CLI_REFERENCE.md). Build instructions: [BUILD
 ### FSR & Ray Regen (Cauldron framework)
 `-benchmark duration=N` runs N measured frames then **exits automatically**, writing a results file to the
 working directory. The framework:
-- forces a GPU FPS limiter on (so runs are comparable),
+- forces a GPU FPS limiter on at 60 fps by default (so runs are comparable) — pass **`-nolimit`** to run uncapped/GPU-bound, and **`-vsync 0`** to drop refresh-rate pacing,
 - records per-pass **GPU and CPU** timings (min/max/mean) via timestamp queries,
 - captures both the **rendered** and **presented** frame counts (see *Render vs Display FPS* below),
 - snapshots the resolution at benchmark start (it changes during teardown).

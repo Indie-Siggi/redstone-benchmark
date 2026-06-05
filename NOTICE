@@ -21,8 +21,8 @@ MIT tier of the files they modify. Full breakdown and all license texts are in
 licenses/. FidelityFX is a trademark of Advanced Micro Devices, Inc.
 
 Modified files (see patches/redstone-benchmark.patch for the exact changes):
-  Kits/Cauldron2/dx12/framework/core/framework.cpp        (Display Avg FPS in CSV/JSON; timestamped output)
-  Kits/Cauldron2/dx12/framework/core/framework.h          (present-count members)
+  Kits/Cauldron2/dx12/framework/core/framework.cpp        (Display Avg FPS in CSV/JSON; timestamped output; -vsync / -nolimit benchmark-integrity flags)
+  Kits/Cauldron2/dx12/framework/core/framework.h          (present-count members; DisableFPSLimit config field)
   Kits/Cauldron2/dx12/rendermodules/skydome/skydomerendermodule.cpp   (skydome CLI overrides)
   Samples/Upscalers/FidelityFX_FSR/dx12/fsrapirendermodule.cpp        (FSR + FG CLI knobs)
   Samples/Denoisers/FidelityFX_Denoiser/dx12/denoiserrendermodule.cpp (Ray Regen CLI knobs)
