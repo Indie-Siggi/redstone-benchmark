@@ -1,0 +1,5 @@
+benchmark,sample,display_resolution,render_resolution,preset,frame_generation,avg_fps,display_avg_fps,total_gpu_ms,key_pass,key_pass_ms
+FSR upscaling,FidelityFX_FSR,3840x2160,2560x1440,FSR Quality (1.5x),off,145.92,145.92,6.147,FFX API FSR Upscaler,1.97
+FSR Frame Generation,FidelityFX_FSR,3840x2160,2560x1440,FSR Quality (1.5x),on,104.87,209.73,6.63,FFX API FSR Upscaler,1.967
+FSR Ray Regeneration,FidelityFX_Denoiser,3840x2160,2560x1440,FSR Quality (1.5x),n/a,50.73,50.73,19.23,FSR Ray Regeneration,9.197
+Neural Radiance Cache,FidelityFX_NRC,3840x2160,3840x2160,native (no FSR),n/a,36.76,36.76,26.753,Radiance cache,5.145

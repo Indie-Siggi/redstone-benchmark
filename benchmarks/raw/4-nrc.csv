@@ -1,0 +1,2 @@
+Sample,GPU,Backend,Width,Height,MeasuredFrames,AvgFPS,CPUframe_avg_ms,CPUframe_min_ms,CPUframe_max_ms,Path tracer_avg_ms,Path tracer_min_ms,Path tracer_max_ms,Radiance cache_avg_ms,Radiance cache_min_ms,Radiance cache_max_ms,Composite_avg_ms,Composite_min_ms,Composite_max_ms,Display_avg_ms,Display_min_ms,Display_max_ms
+FidelityFX_NRC,AMD Radeon RX 9070 XT (RADV GFX1201),WMMA,3840,2160,1000,36.7603,27.2033,15.7636,53.6755,20.6202,10.082,46.7188,5.14486,4.95556,5.37524,0.76002,0.70812,0.81956,0.22762,0.16888,0.28672

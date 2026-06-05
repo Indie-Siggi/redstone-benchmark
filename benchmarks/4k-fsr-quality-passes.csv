@@ -1,0 +1,55 @@
+benchmark,pass,gpu_ms
+FSR upscaling,ComputeSkinning,0.0002
+FSR upscaling,RasterShadow,1.986
+FSR upscaling,GBuffer,1.3726
+FSR upscaling,Lighting,0.4027
+FSR upscaling,Pre-Trans (FSR),0.025
+FSR upscaling,SkyDome,0.0102
+FSR upscaling,SkyDome Rendering,0.0087
+FSR upscaling,AnimatedTextures RM,0.0036
+FSR upscaling,Pre-Trans (particles sorting),0.0931
+FSR upscaling,Translucency,0.0112
+FSR upscaling,GPUParticleSim,0.0672
+FSR upscaling,Cauldron Internals,0.0346
+FSR upscaling,FFX API FSR Upscaler,1.9695
+FSR upscaling,AutomaticExposure,0.0273
+FSR upscaling,ToneMapping,0.0752
+FSR upscaling,UI,0.0002
+FSR upscaling,SwapChain,0.0593
+FSR Frame Generation,ComputeSkinning,0.0002
+FSR Frame Generation,RasterShadow,2.2522
+FSR Frame Generation,GBuffer,1.3685
+FSR Frame Generation,Lighting,0.4146
+FSR Frame Generation,Pre-Trans (FSR),0.0258
+FSR Frame Generation,SkyDome,0.0103
+FSR Frame Generation,SkyDome Rendering,0.0088
+FSR Frame Generation,AnimatedTextures RM,0.0038
+FSR Frame Generation,Pre-Trans (particles sorting),0.0945
+FSR Frame Generation,Translucency,0.0114
+FSR Frame Generation,GPUParticleSim,0.0674
+FSR Frame Generation,Cauldron Internals,0.035
+FSR Frame Generation,FFX API FSR Upscaler,1.9667
+FSR Frame Generation,FFX API FSR Frame Generation Prepare,0.182
+FSR Frame Generation,AutomaticExposure,0.0501
+FSR Frame Generation,ToneMapping,0.0773
+FSR Frame Generation,UI,0.0002
+FSR Frame Generation,SwapChain,0.061
+FSR Ray Regeneration,ComputeSkinning,0.0002
+FSR Ray Regeneration,RayTracing Updates,0.0906
+FSR Ray Regeneration,BLAS Build,0.0002
+FSR Ray Regeneration,TLAS Build,0.0896
+FSR Ray Regeneration,GBuffer,0.5893
+FSR Ray Regeneration,SkyDome,0.0096
+FSR Ray Regeneration,SkyDome Rendering,0.007
+FSR Ray Regeneration,Pathtracing,7.0322
+FSR Ray Regeneration,FSR Ray Regeneration,9.1968
+FSR Ray Regeneration,FSR Upscaling,2.0276
+FSR Ray Regeneration,CopyToTemp,0.0002
+FSR Ray Regeneration,AutomaticExposure,0.0235
+FSR Ray Regeneration,ToneMapping,0.0845
+FSR Ray Regeneration,UI,0.0115
+FSR Ray Regeneration,SwapChain,0.0669
+Neural Radiance Cache,Path tracer,20.6202
+Neural Radiance Cache,Radiance cache,5.1449
+Neural Radiance Cache,Composite,0.76
+Neural Radiance Cache,Display,0.2276

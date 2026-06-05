@@ -1,0 +1,41 @@
+Info,Value
+CmdLine,-benchmark duration=1000 -nolimit -vsync 0 -resolution 3840 2160 -scalepreset=1 -framegen=1
+AppId,FidelityFX_FSR.exe
+GPU,AMD Radeon RX 9070 XT (RADV GFX1201)
+DriverVersion,99.19.02-230831a-396538C-AMD-Software-Adrenalin-Edition
+API,DX12
+CPU,AMD Ryzen 9 5950X 16-Core Processor            
+Display Resolution,3840x2160
+Render Resolution,2560x1440
+Runtime [s],9.54555
+Avg FPS,104.866
+Display Avg FPS,209.731
+CPU/GPU,Label,Min [ms],Max [ms],Mean [ms]
+CPU,Begin Frame,0.0582,0.123,0.0695623
+CPU,UI Update,0.0725,0.0895,0.0773502
+CPU,Input Update,0.006,0.0074,0.00632704
+CPU,UpdateContent,0.0003,0.0007,0.000421757
+CPU,ComponentUpdates,0.0035,0.0052,0.00402857
+CPU,UpdateScene,0.0006,0.0012,0.000827021
+CPU,RM Executes,1.5332,1.7948,1.62928
+CPU,EndFrame,7.3493,7.9766,7.70138
+CPU,SampleUpdates,0.0022,0.0032,0.00245991
+GPU,ComputeSkinning,0.00012,0.00048,0.000188319
+GPU,RasterShadow,2.12944,2.39272,2.25224
+GPU,GBuffer,1.36116,1.37432,1.3685
+GPU,Lighting,0.40576,0.42292,0.414635
+GPU,Pre-Trans (FSR),0.0252,0.02628,0.0257825
+GPU,SkyDome,0.01,0.01056,0.0103317
+GPU,SkyDome Rendering,0.00868,0.00888,0.0087849
+GPU,AnimatedTextures RM,0.00344,0.0048,0.00375361
+GPU,Pre-Trans (particles sorting),0.09312,0.09608,0.0945251
+GPU,Translucency,0.0108,0.012,0.0114222
+GPU,GPUParticleSim,0.06676,0.06804,0.0673724
+GPU,Cauldron Internals,0.03348,0.03664,0.0350068
+GPU,FFX API FSR Upscaler,1.958,1.9752,1.96665
+GPU,FFX API FSR Frame Generation Prepare,0.17736,0.1862,0.181956
+GPU,AutomaticExposure,0.04924,0.05112,0.0501291
+GPU,ToneMapping,0.07552,0.07896,0.0773056
+GPU,UI,0.0002,0.00024,0.000218864
+GPU,SwapChain,0.0596,0.06216,0.0609528
+ScreenshotName,

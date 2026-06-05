@@ -135,6 +135,12 @@ umu-run FidelityFX_NRC.exe -benchmark duration=2000
 #   read: "Radiance cache" per-pass GPU time + AvgFPS + the Backend column.
 ```
 
+## Benchmark results
+
+Reference numbers at 4K / FSR Quality (uncapped) for all four benchmarks are in
+[`benchmarks/`](benchmarks/) — a graph-ready summary CSV, a per-pass breakdown CSV, and the raw
+per-run output. See [benchmarks/README.md](benchmarks/README.md).
+
 ## Binary release
 
 **Use prebuilt binaries (no build needed).** Download `redstone-benchmark-<version>.zip` from the project's

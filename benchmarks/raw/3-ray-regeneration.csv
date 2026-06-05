@@ -1,0 +1,38 @@
+Info,Value
+CmdLine,-benchmark duration=1000 -nolimit -vsync 0 -resolution 3840 2160 -scalepreset=1
+AppId,FidelityFX_Denoiser_Sample_2022.exe
+GPU,AMD Radeon RX 9070 XT (RADV GFX1201)
+DriverVersion,99.19.02-230831a-396538C-AMD-Software-Adrenalin-Edition
+API,DX12
+CPU,AMD Ryzen 9 5950X 16-Core Processor            
+Display Resolution,3840x2160
+Render Resolution,2560x1440
+Runtime [s],19.7324
+Avg FPS,50.7288
+Display Avg FPS,50.7288
+CPU/GPU,Label,Min [ms],Max [ms],Mean [ms]
+CPU,Begin Frame,0.0764,0.1049,0.0872299
+CPU,UI Update,0.0764,0.1077,0.087892
+CPU,Input Update,0.007,0.0119,0.0088614
+CPU,UpdateContent,0.0004,0.0009,0.000575298
+CPU,ComponentUpdates,0.0036,0.0069,0.00460818
+CPU,UpdateScene,0.0003,0.0004,0.000313966
+CPU,RM Executes,0.3694,0.4864,0.414041
+CPU,EndFrame,18.8587,19.1725,19.0253
+CPU,SampleUpdates,0.0039,0.0061,0.00475398
+GPU,ComputeSkinning,0.0002,0.0002,0.0002
+GPU,RayTracing Updates,0.08952,0.09176,0.0906285
+GPU,BLAS Build,0.00016,0.00016,0.00016
+GPU,TLAS Build,0.08852,0.0906,0.0895696
+GPU,GBuffer,0.57828,0.59656,0.589267
+GPU,SkyDome,0.00764,0.01024,0.00960589
+GPU,SkyDome Rendering,0.00692,0.00716,0.00704162
+GPU,Pathtracing,6.9488,7.11848,7.03217
+GPU,FSR Ray Regeneration,9.13528,9.26376,9.19682
+GPU,FSR Upscaling,2.02072,2.03472,2.02761
+GPU,CopyToTemp,0.0002,0.0002,0.0002
+GPU,AutomaticExposure,0.02324,0.02376,0.0234897
+GPU,ToneMapping,0.0836,0.0856,0.0845002
+GPU,UI,0.01136,0.0116,0.0114861
+GPU,SwapChain,0.06616,0.06764,0.0668941
+ScreenshotName,
